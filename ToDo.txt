@@ -1,0 +1,139 @@
+Here’s a detailed TODO list for each phase of PortFury development.
+
+Roadmap for PortFury
+
+Phase 1: Core Features
+
+    SYN Scan (Stealth Scan)
+
+        Implement TCP SYN scan using raw sockets or gopacket.
+
+        Add a flag (-scan-type=syn) to switch between connect and SYN scans.
+
+    UDP Scan
+
+        Add support for scanning UDP ports.
+
+        Use net.DialTimeout with udp as the network type.
+
+    Rate Limiting
+
+        Add a flag (-rate-limit=100) to control packets per second.
+
+        Implement a token bucket or leaky bucket algorithm.
+
+Phase 2: Advanced Scanning
+
+    OS Fingerprinting
+
+        Analyze TCP/IP stack behavior (e.g., TTL, window size) to guess the OS.
+
+        Add a flag (-os-detection) to enable OS detection.
+
+    Distributed Scanning
+
+        Implement a master-worker architecture for distributed scans.
+
+        Use message queues (e.g., RabbitMQ, Redis) for coordination.
+
+    Asynchronous DNS Resolution
+
+        Resolve domain names concurrently using goroutines and channels.
+
+Phase 3: Usability Enhancements
+
+    Interactive Mode
+
+        Add an interactive shell using go-prompt or liner.
+
+        Allow users to run commands like scan, set host, set ports, etc.
+
+    Configuration File Support
+
+        Add support for JSON/YAML configuration files.
+
+        Allow users to save and load scan settings.
+
+    Progress Bar
+
+        Integrate a progress bar using mpb (Multi-Progress Bar).
+
+        Show real-time progress during scans.
+
+Phase 4: Advanced Output and Reporting
+
+    HTML Report
+
+        Generate an HTML report with scan results.
+
+        Use Go templates to create a visually appealing report.
+
+    Tool Integration
+
+        Export results in formats compatible with Metasploit, Nessus, and Burp Suite.
+
+        Add flags for CSV, XML, and JSON output.
+
+    Real-Time Alerts
+
+        Send alerts via email or Slack when specific ports or services are detected.
+
+        Integrate with APIs like SendGrid and Slack Webhooks.
+
+Phase 5: Security and Evasion
+
+    Evasion Techniques
+
+        Add options for packet fragmentation and random delays.
+
+        Use gopacket to craft custom packets.
+
+    Proxy Support
+
+        Add support for SOCKS and HTTP proxies.
+
+        Use libraries like golang.org/x/net/proxy.
+
+    Encrypted Communication
+
+        Encrypt traffic between the scanner and C2 server using TLS or AES.
+
+Phase 6: AI/ML Integration
+
+    Vulnerability Prediction
+
+        Train a machine learning model to predict vulnerabilities based on open ports and banners.
+
+        Integrate the model into the tool.
+
+    Anomaly Detection
+
+        Use clustering algorithms (e.g., k-means) to detect unusual patterns in scan results.
+
+        Flag unexpected open ports or services.
+
+Phase 7: Community and Collaboration
+
+    Plugin System
+
+        Allow users to write and share plugins for custom scans or features.
+
+        Use Go’s plugin package or a scripting language like Lua.
+
+    API for Automation
+
+        Provide a REST or gRPC API for integrating PortFury into automated workflows.
+
+        Use libraries like gin (REST) or grpc-go.
+
+Phase 8: Documentation and Support
+
+    Comprehensive Documentation
+
+        Write detailed documentation, including tutorials, API references, and FAQs.
+
+        Use tools like MkDocs or Docusaurus.
+
+    Community Forum
+
+        Create a forum or Discord server for users to ask questions and share tips.
